@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ladeampel</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231558B0'/><text x='16' y='23' text-anchor='middle' font-size='20'>⚡</text></svg>" />
+  <link rel="apple-touch-icon" href="data:image/png;base64,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" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Ladeampel" />
+  <meta name="theme-color" content="#1558B0" />
+  <style>
+    :root {
+      --blue:      #1558B0;
+      --blue-mid:  #1A6FD4;
+      --blue-dim:  #E3EDF9;
+      --green:     #1A6132;
+      --green-dim: #E0F0E7;
+      --green-bdr: #86C49E;
+      --red:       #A02424;
+      --red-dim:   #F8E6E6;
+      --red-bdr:   #D89898;
+      --amber:     #8A3C0C;
+      --amber-dim: #FAF0E2;
+      --amber-bdr: #E0B478;
+      --bg:        #E6E6E4;
+      --card:      #F8F8F6;
+      --card2:     #EDEDEB;
+      --bdr:       rgba(0,0,0,0.09);
+      --bdr2:      rgba(0,0,0,0.055);
+      --txt:       #0B0B0A;
+      --txt2:      #585854;
+      --txt3:      #989894;
+      --r:         16px;
+    }
+
+```
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  background: var(--bg);
+  color: var(--txt);
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  padding-left:   max(env(safe-area-inset-left),   1rem);
+  padding-right:  max(env(safe-area-inset-right),  1rem);
+  padding-top:    max(env(safe-area-inset-top),    1.4rem);
+  padding-bottom: max(env(safe-area-inset-bottom), 3rem);
+}
+
+.app { width: 100%; max-width: 430px; }
+
+/* Header */
+.hdr { display: flex; align-items: center; gap: 9px; margin-bottom: 1.15rem; }
+.hdr-icon {
+  width: 34px; height: 34px;
+  background: var(--blue);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(21,88,176,0.3);
+}
+.hdr-title { font-size: 21px; font-weight: 800; letter-spacing: -0.7px; }
+.hdr-sub   { font-size: 12px; color: var(--txt3); margin-left: auto; }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  background: rgba(0,0,0,0.065);
+  border-radius: 11px;
+  padding: 3px; gap: 2px;
+  margin-bottom: 1rem;
+}
+.tab {
+  flex: 1; padding: 8px 4px;
+  font-size: 12.5px; font-weight: 500;
+  text-align: center; border: none;
+  background: transparent; color: var(--txt2);
+  border-radius: 8px; cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.12s, color 0.12s, box-shadow 0.12s;
+}
+.tab.on {
+  background: var(--card); color: var(--txt); font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.13), 0 0.5px 1px rgba(0,0,0,0.07);
+}
+.pane { display: none; }
+.pane.on { display: block; }
+
+/* Card */
+.card {
+  background: var(--card);
+  border-radius: var(--r);
+  border: 0.5px solid var(--bdr);
+  padding: 1rem 1.15rem;
+  margin-bottom: 0.75rem;
+}
+.clbl {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.7px; text-transform: uppercase;
+  color: var(--txt3); margin-bottom: 13px;
+}
+
+/* Form */
+.frow { display: flex; align-items: center; gap: 9px; margin-bottom: 9px; }
+.frow:last-child { margin-bottom: 0; }
+.frow label { font-size: 14px; color: var(--txt2); flex-shrink: 0; }
+.unit { font-size: 13px; color: var(--txt3); }
+
+input[type=number] {
+  width: 84px; padding: 9px 12px;
+  font-size: 16px; font-weight: 500;
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  background: var(--card2); color: var(--txt); outline: none;
+  transition: border-color 0.13s, background 0.13s;
+  -moz-appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+input[type=number]:focus { border-color: var(--blue-mid); background: var(--blue-dim); }
+.hint { font-size: 11.5px; color: var(--txt3); line-height: 1.55; margin-top: 7px; }
+.sep  { border: none; border-top: 0.5px solid var(--bdr2); margin: 13px 0; }
+
+/* Price bar */
+.pricebar { display: flex; align-items: flex-end; justify-content: space-between; }
+.price-big  { font-size: 40px; font-weight: 800; color: var(--blue); letter-spacing: -2px; line-height: 1; }
+.price-unit { font-size: 17px; font-weight: 700; color: var(--blue); letter-spacing: -0.5px; }
+.price-note { font-size: 11px; color: var(--txt3); margin-top: 5px; }
+.kwh-big    { font-size: 22px; font-weight: 700; letter-spacing: -0.8px; line-height: 1; }
+.kwh-note   { font-size: 11px; color: var(--txt3); margin-top: 4px; text-align: right; }
+
+/* Clock row */
+.clockrow { display: flex; justify-content: space-between; align-items: center; }
+.clock-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--txt3); margin-bottom: 3px; }
+.clock-val { font-size: 22px; font-weight: 700; letter-spacing: -0.7px; }
+
+/* Start-Zeit Karte */
+.start-card {
+  border-radius: var(--r);
+  border: 1px solid;
+  padding: 20px 18px 16px;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.start-card.sc-ok   { background: var(--green-dim); border-color: var(--green-bdr); }
+.start-card.sc-warn { background: var(--amber-dim); border-color: var(--amber-bdr); }
+.start-card.sc-no   { background: var(--red-dim);   border-color: var(--red-bdr); }
+.start-label { font-size: 11px; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase; color: var(--txt3); margin-bottom: 6px; }
+.start-time  { font-size: 64px; font-weight: 800; letter-spacing: -3px; line-height: 1; }
+.start-time.ok   { color: var(--green); }
+.start-time.warn { color: var(--amber); }
+.start-time.no   { color: var(--red); }
+.start-sub   { font-size: 13px; color: var(--txt2); margin-top: 8px; line-height: 1.7; }
+.start-price { font-size: 15px; font-weight: 700; margin-top: 10px; }
+
+.rc { border-radius: var(--r); border: 1px solid; padding: 13px 15px; margin-bottom: 0.5rem; }
+.rc-ok   { background: var(--green-dim); border-color: var(--green-bdr); }
+.rc-warn { background: var(--amber-dim); border-color: var(--amber-bdr); }
+.rc-no   { background: var(--red-dim);   border-color: var(--red-bdr); }
+.rc-head { font-size: 14px; font-weight: 700; letter-spacing: -0.2px; margin-bottom: 6px; }
+.rc-body { font-size: 13px; line-height: 1.9; }
+.rc-body b { font-weight: 600; }
+
+/* Tesla card */
+.tcard { background: var(--card); border-radius: var(--r); border: 0.5px solid var(--bdr); padding: 1rem 1.15rem; margin-bottom: 0.75rem; }
+.tcard-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.7px; text-transform: uppercase; color: var(--txt3); margin-bottom: 13px; }
+.steps { display: flex; flex-direction: column; gap: 10px; }
+.step  { display: flex; gap: 10px; align-items: flex-start; }
+.snum  { width: 20px; height: 20px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1.5px; }
+.stxt  { font-size: 13px; line-height: 1.65; color: var(--txt); }
+.chip  { display: inline-block; padding: 1px 8px; border-radius: 6px; font-weight: 700; font-size: 13px; }
+.chip-b { color: var(--blue); background: var(--blue-dim); }
+.chip-g { color: var(--txt);  background: var(--card2); border: 0.5px solid var(--bdr); }
+
+/* Preise */
+.dtabs { display: flex; gap: 6px; margin-bottom: 13px; }
+.dtab  { font-size: 13px; font-weight: 500; padding: 7px 18px; border-radius: 9px; border: 1.5px solid var(--bdr); background: transparent; cursor: pointer; color: var(--txt2); touch-action: manipulation; transition: all 0.12s; }
+.dtab.on { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 600; }
+
+.hgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); gap: 5px; margin-bottom: 13px; }
+.hcell { border-radius: 9px; padding: 6px 3px; text-align: center; border: 1px solid rgba(0,0,0,0.07); }
+.hcell .ht { font-size: 9.5px; color: var(--txt3); font-weight: 500; }
+.hcell .hp { font-size: 12px; font-weight: 700; margin-top: 2px; }
+
+.cg { background: var(--green-dim); border-color: var(--green-bdr); }
+.cg .hp { color: var(--green); }
+.cr { background: var(--red-dim);   border-color: var(--red-bdr); }
+.cr .hp { color: var(--red); }
+.cp { background: var(--blue-dim);  border-color: var(--blue-mid); border-width: 1.5px; }
+.cp .hp, .cp .ht { color: var(--blue-mid); }
+.cw { background: var(--amber-dim); border-color: var(--amber-bdr); border-width: 1.5px; }
+.cw .hp { color: var(--amber); }
+.cnow { outline: 2.5px solid var(--blue-mid); outline-offset: 1.5px; border-radius: 9px; }
+
+.legend { display: flex; gap: 12px; flex-wrap: wrap; }
+.legend span { font-size: 11px; color: var(--txt2); display: flex; align-items: center; gap: 4px; }
+.ld { width: 9px; height: 9px; border-radius: 2px; }
+
+.err     { font-size: 13px; color: var(--red);  background: var(--red-dim);  padding: 12px; border-radius: 12px; margin-bottom: 10px; }
+.loading { font-size: 13px; color: var(--txt3); padding: 6px 0; }
+.src     { font-size: 11px; color: var(--txt3); text-align: center; margin-top: 1.5rem; }
+.src a   { color: var(--txt2); text-decoration: none; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #101010;
+    --card:      #1C1C1A;
+    --card2:     #242422;
+    --bdr:       rgba(255,255,255,0.08);
+    --bdr2:      rgba(255,255,255,0.05);
+    --txt:       #EEEEED;
+    --txt2:      #848480;
+    --txt3:      #545450;
+    --blue-dim:  #0A2140;
+    --green-dim: #081B10;
+    --green-bdr: #1A4C2A;
+    --red-dim:   #200A0A;
+    --red-bdr:   #461818;
+    --amber-dim: #1C0E06;
+    --amber-bdr: #462006;
+  }
+  .tabs { background: rgba(255,255,255,0.06); }
+  .tab.on { background: #262624; box-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+  .chip-g { background: #2A2A28; }
+  .hdr-icon { box-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+}
+```
+
+  </style>
+</head>
+<body>
+<div class="app">
+
+  <div class="hdr">
+    <div class="hdr-icon">⚡</div>
+    <span class="hdr-title">Ladeampel</span>
+    <span class="hdr-sub">Model 3 · 78,1 kWh</span>
+  </div>
+
+  <div class="tabs">
+    <button class="tab on"  onclick="showTab('plan',this)">Ladeplan</button>
+    <button class="tab"     onclick="showTab('preise',this)">Preise</button>
+    <button class="tab"     onclick="showTab('anleitung',this)">Anleitung</button>
+    <button class="tab"     onclick="showTab('settings',this)">Einstellungen</button>
+  </div>
+
+  <!-- LADEPLAN (vereinfacht: nur Empfehlungskarten, keine Tesla-Anleitung) -->
+
+  <div class="pane on" id="pane-plan">
+    <div class="card">
+      <p class="clbl">Ladestand</p>
+      <div class="frow">
+        <label>Jetzt</label>
+        <input type="number" id="soc"  value="20"  min="0"  max="100" step="1" oninput="render()" />
+        <span class="unit">%</span>
+      </div>
+      <div class="frow">
+        <label>Ziel</label>
+        <input type="number" id="ziel" value="100" min="10" max="100" step="1" oninput="render()" />
+        <span class="unit">%</span>
+      </div>
+      <div class="sep"></div>
+      <div class="pricebar">
+        <div>
+          <div><span class="price-big" id="threshDisplay">28</span><span class="price-unit"> ct</span></div>
+          <div class="price-note">max. Ø-Preis · Einstellungen</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="kwh-big" id="kwhDisplay">—</div>
+          <div class="kwh-note">noch zu laden</div>
+        </div>
+      </div>
+      <div class="sep"></div>
+      <div class="clockrow">
+        <div>
+          <div class="clock-lbl">Uhrzeit</div>
+          <div class="clock-val" id="currentTime">—</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="clock-lbl">Ladezeit</div>
+          <div class="clock-val" id="ladezeitDisplay">—</div>
+        </div>
+      </div>
+    </div>
+    <div id="planArea"><p class="loading">Lade Börsenpreise…</p></div>
+  </div>
+
+  <!-- ANLEITUNG -->
+
+  <div class="pane" id="pane-anleitung">
+    <div id="anleitungArea"><p class="loading">Ladeplan zuerst im Tab „Ladeplan" berechnen…</p></div>
+  </div>
+
+  <!-- PREISE -->
+
+  <div class="pane" id="pane-preise">
+    <div class="card">
+      <div class="dtabs">
+        <button class="dtab on" onclick="switchDay('today',this)">Heute</button>
+        <button class="dtab" id="tomBtn" onclick="switchDay('tomorrow',this)">Morgen</button>
+      </div>
+      <div class="hgrid" id="hoursGrid"></div>
+      <div class="legend">
+        <span><span class="ld" style="background:var(--blue-mid);"></span>Ladeplan</span>
+        <span><span class="ld" style="background:var(--amber-bdr);"></span>Warnung</span>
+        <span><span class="ld" style="background:var(--green-bdr);"></span>unter Limit</span>
+        <span><span class="ld" style="background:var(--red-bdr);"></span>über Limit</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EINSTELLUNGEN -->
+
+  <div class="pane" id="pane-settings">
+    <div class="card">
+      <p class="clbl">Strompreis</p>
+      <div class="frow">
+        <label>Aufschlag netto</label>
+        <input type="number" id="aufschlag" value="13.49" min="0" max="40" step="0.01" oninput="render()" />
+        <span class="unit">ct/kWh</span>
+      </div>
+      <p class="hint">Netzentgelt + Umlagen + Beschaffungskosten netto. MwSt. ×1,19 wird automatisch aufgeschlagen.</p>
+      <div class="sep"></div>
+      <div class="frow">
+        <label>Max. Ø-Preis</label>
+        <input type="number" id="threshold" value="28" min="10" max="50" step="1" oninput="onThresh(this.value)" />
+        <span class="unit">ct/kWh</span>
+      </div>
+      <p class="hint">Dein Preislimit für den Ladevorgang im Durchschnitt.</p>
+      <div class="sep"></div>
+      <div class="frow">
+        <label>Wallbox</label>
+        <input type="number" id="wallbox" value="10" min="1" max="22" step="1" oninput="render()" />
+        <span class="unit">kW</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="src">Preisdaten: <a href="https://www.awattar.de" target="_blank">aWATTar API</a> · EPEX Spot Day-Ahead</p>
+</div>
+
+<script>
+  const AKKU_KWH = 78.1;
+  let prices    = { today: [], tomorrow: [] };
+  let thresh    = 28;
+  let activeDay = 'today';
+  let planHoursToday = new Set(), planHoursTomorrow = new Set();
+  let warnHoursToday = new Set(), warnHoursTomorrow = new Set();
+
+  // Ladestand merken
+  const socEl = document.getElementById('soc'), zielEl = document.getElementById('ziel');
+  const ss = localStorage.getItem('la_soc'), sz = localStorage.getItem('la_ziel');
+  if (ss !== null) socEl.value = ss;
+  if (sz !== null) zielEl.value = sz;
+  socEl.addEventListener('input',  () => localStorage.setItem('la_soc',  socEl.value));
+  zielEl.addEventListener('input', () => localStorage.setItem('la_ziel', zielEl.value));
+
+  function showTab(id, btn) {
+    document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
+    document.querySelectorAll('.tab').forEach(b  => b.classList.remove('on'));
+    document.getElementById('pane-' + id).classList.add('on');
+    btn.classList.add('on');
+    if (id === 'preise') renderGrid();
+  }
+
+  function onThresh(v) {
+    thresh = parseFloat(v) || 28;
+    document.getElementById('threshDisplay').textContent = thresh;
+    render();
+  }
+
+  const getAufschlag = () => parseFloat(document.getElementById('aufschlag').value) || 13.49;
+  const getSoc       = () => parseFloat(document.getElementById('soc').value)        || 0;
+  const getZiel      = () => parseFloat(document.getElementById('ziel').value)       || 100;
+  const getWallbox   = () => parseFloat(document.getElementById('wallbox').value)    || 10;
+  const fmt   = c  => c.toFixed(1) + ' ct';
+  const fmtH  = h  => h.toString().padStart(2,'0') + ':00';
+  const total = raw => Math.round((raw + getAufschlag()) * 1.19 * 10) / 10;
+  const benKwh = () => Math.round(Math.max(0, getZiel() - getSoc()) / 100 * AKKU_KWH * 10) / 10;
+  const benH   = kwh => Math.ceil(kwh / getWallbox());
+
+  function calcPlan(psToday, psTom) {
+    const kwh = benKwh();
+    if (kwh <= 0) return { leer: true };
+    const stunden = benH(kwh);
+    const nowH = new Date().getHours();
+    const all  = [...psToday.filter(p => new Date(p.time).getHours() >= nowH), ...psTom];
+    if (all.length < stunden) return { kwh, stunden, machbar: false, keineDaten: true };
+
+    const dayOf = t => new Date(t).toDateString() === new Date().toDateString() ? 'heute' : 'morgen';
+    const toH   = (win, day) => new Set(win.filter(p => dayOf(p.time) === day).map(p => new Date(p.time).getHours()));
+
+    const blocks = [];
+    for (let i = 0; i <= all.length - stunden; i++) {
+      const win = all.slice(i, i + stunden);
+      const avg = win.reduce((s,p) => s + p.cents, 0) / stunden;
+      const s = new Date(win[0].time), e = new Date(win[win.length-1].time);
+      blocks.push({ startH: s.getHours(), endH: e.getHours()+1, startDay: dayOf(win[0].time), endDay: dayOf(win[win.length-1].time), avg: Math.round(avg*10)/10, win });
+    }
+
+    const bester   = blocks.reduce((a,b) => a.avg < b.avg ? a : b);
+    const ulBlocks = blocks.filter(b => b.avg <= thresh);
+    const frueh    = ulBlocks[0] || null;
+    const schnB    = blocks.find(b => b.startH === nowH && b.startDay === 'heute') || blocks[0];
+    const schnell  = { avg: schnB.avg, startH: schnB.startH, startDay: schnB.startDay, endH: schnB.endH, endDay: schnB.endDay, unterLimit: schnB.avg <= thresh };
+
+    if (!frueh) return {
+      kwh, stunden, machbar: false,
+      avgBest: bester.avg, besterStart: bester.startH, besterStartDay: bester.startDay, besterEnd: bester.endH, besterEndDay: bester.endDay,
+      schnell, todayHours: new Set(), tomorrowHours: new Set(),
+      warnTodayHours: toH(bester.win,'heute'), warnTomorrowHours: toH(bester.win,'morgen')
+    };
+
+    return {
+      kwh, stunden, machbar: true,
+      avgBest: bester.avg, besterStart: bester.startH, besterStartDay: bester.startDay, besterEnd: bester.endH, besterEndDay: bester.endDay,
+      avgFruehest: frueh.avg, fruehesterStart: frueh.startH, fruehesterStartDay: frueh.startDay, fruehesterEnd: frueh.endH, fruehesterEndDay: frueh.endDay,
+      schnell,
+      todayHours: toH(bester.win,'heute'), tomorrowHours: toH(bester.win,'morgen'),
+      warnTodayHours: new Set(), warnTomorrowHours: new Set()
+    };
+  }
+
+  async function load() {
+    try {
+      const j = await (await fetch('https://api.awattar.de/v1/marketdata')).json();
+      const now = new Date(), ts = now.toDateString(), tm = new Date(now.getTime()+86400000).toDateString();
+      prices.today = []; prices.tomorrow = [];
+      j.data.forEach(d => {
+        const s = new Date(d.start_timestamp), e = { time: s.toISOString(), raw: d.marketprice/10 };
+        if (s.toDateString()===ts)      prices.today.push(e);
+        else if (s.toDateString()===tm) prices.tomorrow.push(e);
+      });
+      const tb = document.getElementById('tomBtn');
+      if (!prices.tomorrow.length) { tb.style.opacity='0.35'; tb.disabled=true; }
+      render();
+    } catch(e) {
+      document.getElementById('planArea').innerHTML = `<div class="err">Fehler beim Laden: ${e.message}</div>`;
+    }
+  }
+
+  function render() {
+    const now=new Date(), nowH=now.getHours(), nowMin=now.getMinutes();
+    const kwh=benKwh(), wb=getWallbox();
+
+    document.getElementById('kwhDisplay').textContent    = kwh > 0 ? kwh + ' kWh' : 'Ziel erreicht';
+    document.getElementById('threshDisplay').textContent = thresh;
+    document.getElementById('currentTime').textContent   = nowH.toString().padStart(2,'0') + ':' + nowMin.toString().padStart(2,'0');
+    const lzH=Math.floor(kwh/wb), lzM=Math.round((kwh/wb-lzH)*60);
+    document.getElementById('ladezeitDisplay').textContent = kwh>0 ? (lzH>0?lzH+'h ':'')+lzM+'m' : '—';
+
+    const pt=prices.today.map(p=>({...p,cents:total(p.raw)}));
+    const pm=prices.tomorrow.map(p=>({...p,cents:total(p.raw)}));
+    const plan=calcPlan(pt,pm);
+
+    planHoursToday=plan.todayHours||new Set(); planHoursTomorrow=plan.tomorrowHours||new Set();
+    warnHoursToday=plan.warnTodayHours||new Set(); warnHoursTomorrow=plan.warnTomorrowHours||new Set();
+
+    const past=(h,day)=>day==='heute'&&h<nowH;
+    let html='';
+    let anlHTML='';
+
+    if (plan.leer) {
+      html=`<div class="start-card sc-ok">
+        <div class="start-label">Status</div>
+        <div class="start-time ok">✓</div>
+        <div class="start-sub">Akku am Ziel — kein Laden nötig.</div>
+      </div>`;
+      anlHTML=html;
+
+    } else if (plan.keineDaten) {
+      html=`<div class="start-card sc-warn">
+        <div class="start-label">Morgen-Preise</div>
+        <div class="start-time warn" style="font-size:40px;">◷</div>
+        <div class="start-sub">Noch nicht verfügbar.<br>aWATTar veröffentlicht ab ca. 14:00 Uhr.</div>
+      </div>`;
+      anlHTML=html;
+
+    } else if (!plan.machbar) {
+      const ueber=(plan.avgBest-thresh).toFixed(1);
+      html=`<div class="start-card sc-no">
+        <div class="start-label">Günstigster Start</div>
+        <div class="start-time no">${fmtH(plan.besterStart)}</div>
+        <div class="start-sub">${plan.besterStartDay} → fertig ${plan.besterEndDay} ${fmtH(plan.besterEnd)}</div>
+        <div class="start-price" style="color:var(--red);">${fmt(plan.avgBest)} · ${ueber} ct über Limit</div>
+      </div>`;
+      anlHTML = `<div class="start-card sc-no" style="margin-bottom:0.75rem;">
+        <div class="start-label">Günstigster Start · Unter ${thresh} ct nicht erreichbar</div>
+        <div class="start-time no">${fmtH(plan.besterStart)}</div>
+        <div class="start-sub">${plan.besterStartDay} → fertig ${plan.besterEndDay} ${fmtH(plan.besterEnd)}</div>
+      </div>` + teslaCard(plan.besterStart,plan.besterStartDay,plan.besterEnd,plan.besterEndDay,plan.stunden,plan.kwh,false);
+
+    } else {
+      const s=plan.schnell;
+      const pl=avg=>{
+        const ok=avg<=thresh,col=ok?'var(--green)':'var(--red)',lbl=ok?`✓ unter ${thresh} ct`:`✕ über ${thresh} ct`;
+        return `<span style="font-weight:700;color:${col};">${fmt(avg)}</span> <span style="font-size:11px;color:${col};opacity:0.85;">${lbl}</span>`;
+      };
+
+      // Besten empfohlenen Start ermitteln
+      const bverg=past(plan.besterStart,plan.besterStartDay);
+      const es=bverg?plan.fruehesterStart:plan.besterStart;
+      const esd=bverg?plan.fruehesterStartDay:plan.besterStartDay;
+      const ee=bverg?plan.fruehesterEnd:plan.besterEnd;
+      const eed=bverg?plan.fruehesterEndDay:plan.besterEndDay;
+      const eavg=bverg?plan.avgFruehest:plan.avgBest;
+      const eok=eavg<=thresh;
+
+      // Große Startzeitkarte
+      html=`<div class="start-card ${eok?'sc-ok':'sc-warn'}">
+        <div class="start-label">Empfohlener Start</div>
+        <div class="start-time ${eok?'ok':'warn'}">${fmtH(es)}</div>
+        <div class="start-sub">${esd} → fertig ${eed} ${fmtH(ee)} · ${plan.stunden} Std</div>
+        <div class="start-price">${pl(eavg)}</div>
+      </div>`;
+
+      // Zusatz-Karten (Schnellstart / frühester / bester)
+      html+=`<div class="rc ${s.unterLimit?'rc-ok':'rc-warn'}">
+        <div class="rc-head">⚡ Schnellstart — jetzt sofort</div>
+        <div class="rc-body"><b>Start:</b> jetzt → fertig ${s.endDay} ${fmtH(s.endH)}<br><b>Ø Preis:</b> ${pl(s.avg)}</div>
+      </div>`;
+
+      const fverg=past(plan.fruehesterStart,plan.fruehesterStartDay);
+      if (!fverg&&!(plan.fruehesterStart===nowH&&plan.fruehesterStartDay==='heute')) {
+        html+=`<div class="rc rc-ok">
+          <div class="rc-head">① Frühester Start unter ${thresh} ct</div>
+          <div class="rc-body"><b>Start:</b> ${plan.fruehesterStartDay} ${fmtH(plan.fruehesterStart)} → fertig ${plan.fruehesterEndDay} ${fmtH(plan.fruehesterEnd)}<br><b>Ø Preis:</b> ${pl(plan.avgFruehest)}</div>
+        </div>`;
+      }
+
+      const samF=plan.fruehesterStart===plan.besterStart&&plan.fruehesterStartDay===plan.besterStartDay;
+      const samS=plan.besterStart===nowH&&plan.besterStartDay==='heute';
+      if (!bverg) {
+        html+=(!samF&&!samS)
+          ?`<div class="rc rc-ok"><div class="rc-head">② Niedrigster Preis</div><div class="rc-body"><b>Start:</b> ${plan.besterStartDay} ${fmtH(plan.besterStart)} → fertig ${plan.besterEndDay} ${fmtH(plan.besterEnd)}<br><b>Ø Preis:</b> ${pl(plan.avgBest)}</div></div>`
+          :`<div class="rc rc-ok"><div class="rc-head">② Niedrigster Preis = Frühester Start ✓</div><div class="rc-body" style="color:var(--green);font-weight:500;">Optimaler Zeitpunkt — günstiger geht's heute+morgen nicht!</div></div>`;
+      }
+
+      // Anleitung-Tab: große Karte + Schritte
+      anlHTML=`<div class="start-card ${eok?'sc-ok':'sc-warn'}" style="margin-bottom:0.75rem;">
+        <div class="start-label">Empfohlener Start</div>
+        <div class="start-time ${eok?'ok':'warn'}">${fmtH(es)}</div>
+        <div class="start-sub">${esd} · fertig ${eed} ${fmtH(ee)}</div>
+      </div>` + teslaCard(es,esd,ee,eed,plan.stunden,plan.kwh,true);
+    }
+
+    document.getElementById('planArea').innerHTML=html;
+    document.getElementById('anleitungArea').innerHTML=anlHTML;
+    renderGrid();
+  }
+
+  function teslaCard(startH,startDay,endH,endDay,stunden,kwh,machbar) {
+    const ziel=getZiel(), lz=Math.round(kwh/getWallbox()*10)/10;
+    const eL=`${endDay==='heute'?'Heute':'Morgen'} ${fmtH(endH)}`;
+    let s='';
+    if (machbar) {
+      s+=st(1,`Auto <b>jetzt anstecken</b> — noch nicht laden lassen`);
+      s+=st(2,`Tesla App → <b>Laden</b> → <b>Zeitplan</b>`);
+      s+=st(3,`<b>Start um</b> <span class="chip chip-b">${fmtH(startH)}</span> einstellen <span style="font-size:11px;color:var(--txt3);">(${startDay})</span>`);
+      s+=st(4,`Tesla lädt <b>${stunden} Stunden</b> zusammenhängend durch`);
+      s+=st(5,`Ladelimit auf <span class="chip chip-g">${ziel}%</span> setzen`);
+      s+=st(6,`Zeitplan speichern — fertig um ${eL}<br><span style="font-size:11px;color:var(--txt3);">ca. ${lz} Std bei ${getWallbox()} kW</span>`);
+    } else {
+      s+=st(1,`Auto anstecken`);
+      s+=st(2,`Tesla App → <b>Laden</b> → <b>Zeitplan</b>`);
+      s+=st(3,`<b>Start um</b> <span class="chip chip-b">${fmtH(startH)}</span> <span style="font-size:11px;color:var(--txt3);">(${startDay} — günstigster verfügbarer Start)</span>`);
+      s+=st(4,`Tesla lädt <b>${stunden} Stunden</b> durch`);
+      s+=st(5,`Ladelimit auf <span class="chip chip-g">${ziel}%</span> setzen`);
+      s+=st(6,`⚠️ Unter ${thresh} ct nicht erreichbar — fertig um ${eL}`);
+    }
+    return `<div class="tcard"><div class="tcard-lbl">📱 Tesla App — so einstellen</div><div class="steps">${s}</div></div>`;
+  }
+
+  const st=(n,t)=>`<div class="step"><div class="snum">${n}</div><div class="stxt">${t}</div></div>`;
+
+  function switchDay(day,btn) {
+    activeDay=day;
+    document.querySelectorAll('.dtab').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    renderGrid();
+  }
+
+  function renderGrid() {
+    const ps=prices[activeDay].map(p=>({...p,cents:total(p.raw)}));
+    const nowH=new Date().getHours();
+    const pH=activeDay==='today'?planHoursToday:planHoursTomorrow;
+    const wH=activeDay==='today'?warnHoursToday:warnHoursTomorrow;
+    document.getElementById('hoursGrid').innerHTML=ps.map(p=>{
+      const h=new Date(p.time).getHours();
+      const c=pH.has(h)?'cp':wH.has(h)?'cw':p.cents<thresh?'cg':'cr';
+      return `<div class="hcell ${c}${activeDay==='today'&&h===nowH?' cnow':''}"><div class="ht">${h.toString().padStart(2,'0')}h</div><div class="hp">${fmt(p.cents)}</div></div>`;
+    }).join('');
+  }
+
+  load();
+  setInterval(()=>{
+    const n=new Date(),el=document.getElementById('currentTime');
+    if(el) el.textContent=n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0');
+  },60000);
+</script>
+
+</body>
+</html>
