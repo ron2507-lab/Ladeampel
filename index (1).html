@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ladeampel</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231558B0'/><text x='16' y='23' text-anchor='middle' font-size='20'>⚡</text></svg>" />
+  <link rel="apple-touch-icon" href="data:image/png;base64,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" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Ladeampel" />
+  <meta name="theme-color" content="#1558B0" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=DM+Mono:wght@500&display=swap');
+    :root {
+      --blue:#1D4ED8;--blue-mid:#2563EB;--blue-lt:#3B82F6;--blue-dim:#EFF6FF;--blue-bdr:#BFDBFE;--blue-glow:rgba(37,99,235,0.15);
+      --green:#065F46;--green-mid:#059669;--green-lt:#10B981;--green-dim:#ECFDF5;--green-bdr:#6EE7B7;
+      --red:#B91C1C;--red-dim:#FEF2F2;--red-bdr:#FECACA;
+      --amber:#92400E;--amber-dim:#FFFBEB;--amber-bdr:#FDE68A;
+      --bg:#F0F2F5;--card:#FFFFFF;--card2:#F8FAFC;--card3:#F1F5F9;
+      --bdr:rgba(0,0,0,0.08);--bdr2:rgba(0,0,0,0.05);
+      --txt:#0F172A;--txt2:#475569;--txt3:#94A3B8;--r:16px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+    body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:#0F172A;min-height:100dvh;display:flex;justify-content:center;
+      padding-left:max(env(safe-area-inset-left),1.1rem);padding-right:max(env(safe-area-inset-right),1.1rem);
+      padding-top:max(env(safe-area-inset-top),1.6rem);padding-bottom:max(env(safe-area-inset-bottom),3rem);
+      background-image:radial-gradient(ellipse 80% 40% at 50% -5%,rgba(37,99,235,0.06) 0%,transparent 60%),radial-gradient(ellipse 50% 30% at 90% 100%,rgba(5,150,105,0.05) 0%,transparent 50%);}
+    .app{width:100%;max-width:430px;}
+    .hdr{display:flex;align-items:center;gap:10px;margin-bottom:1.3rem;}
+    .hdr-icon{width:36px;height:36px;background:linear-gradient(135deg,#1D4ED8 0%,#3B82F6 100%);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;box-shadow:0 4px 12px rgba(37,99,235,0.3),0 1px 3px rgba(0,0,0,0.1);}
+    .hdr-title{font-size:21px;font-weight:800;letter-spacing:-0.6px;}
+    .hdr-sub{font-size:11px;color:#94A3B8;margin-left:auto;font-family:'DM Mono',monospace;}
+    .src-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:6px;font-family:'DM Mono',monospace;vertical-align:middle;}
+    .src-entsoe{background:#ECFDF5;color:#059669;border:1px solid #6EE7B7;}
+    .src-awattar{background:#EFF6FF;color:#2563EB;border:1px solid #BFDBFE;}
+    .tabs{display:flex;background:rgba(0,0,0,0.055);border-radius:12px;padding:3px;gap:2px;margin-bottom:1.1rem;}
+    .tab{flex:1;padding:8px 2px;font-size:12px;font-weight:600;text-align:center;border:none;background:transparent;color:#475569;border-radius:9px;cursor:pointer;touch-action:manipulation;transition:all 0.15s;white-space:nowrap;overflow:hidden;font-family:'DM Sans',sans-serif;}
+    .tab.on{background:#FFFFFF;color:#0F172A;box-shadow:0 1px 5px rgba(0,0,0,0.1),0 0.5px 1px rgba(0,0,0,0.06);}
+    .pane{display:none!important;}.pane.on{display:block!important;}
+    .card{background:#FFFFFF;border-radius:var(--r);border:1px solid rgba(0,0,0,0.08);padding:1rem 1.15rem;margin-bottom:0.75rem;box-shadow:0 1px 4px rgba(0,0,0,0.05);}
+    .clbl{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#94A3B8;margin-bottom:13px;font-family:'DM Mono',monospace;}
+    .frow{display:flex;align-items:center;gap:9px;margin-bottom:9px;flex-wrap:wrap;}
+    .frow:last-child{margin-bottom:0;}
+    .frow label{font-size:13px;color:#475569;flex-shrink:0;min-width:44px;}
+    .unit{font-size:13px;color:#94A3B8;}
+    input[type=number]{width:84px;padding:9px 12px;font-size:16px;font-weight:700;border:1.5px solid var(--bdr);border-radius:10px;background:#F8FAFC;color:#0F172A;outline:none;transition:border-color 0.13s,background 0.13s,box-shadow 0.13s;-moz-appearance:textfield;font-family:'DM Mono',monospace;}
+    input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;}
+    input[type=number]:focus{border-color:#2563EB;background:var(--blue-dim);box-shadow:0 0 0 3px var(--blue-glow);}
+    input[type=text]{width:100%;padding:10px 12px;font-size:14px;font-weight:500;border:1.5px solid var(--bdr);border-radius:10px;background:#F8FAFC;color:#0F172A;outline:none;transition:border-color 0.13s,background 0.13s,box-shadow 0.13s;font-family:'DM Mono',monospace;letter-spacing:0.5px;}
+    input[type=text]:focus{border-color:#2563EB;background:var(--blue-dim);box-shadow:0 0 0 3px var(--blue-glow);}
+    .hint{font-size:11.5px;color:#94A3B8;line-height:1.55;margin-top:7px;}
+    .sep{border:none;border-top:1px solid var(--bdr2);margin:13px 0;}
+    .pricebar{display:flex;align-items:flex-end;justify-content:space-between;}
+    .price-big{font-size:42px;font-weight:800;color:#2563EB;letter-spacing:-2px;line-height:1;}
+    .price-unit{font-size:18px;font-weight:700;color:#2563EB;}
+    .price-note{font-size:11px;color:#94A3B8;margin-top:5px;}
+    .kwh-big{font-size:22px;font-weight:700;letter-spacing:-0.8px;line-height:1;font-family:'DM Mono',monospace;}
+    .kwh-note{font-size:11px;color:#94A3B8;margin-top:4px;text-align:right;}
+    .clockrow{display:flex;justify-content:space-between;align-items:center;}
+    .clock-lbl{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#94A3B8;margin-bottom:3px;font-family:'DM Mono',monospace;}
+    .clock-val{font-size:24px;font-weight:800;letter-spacing:-0.7px;font-family:'DM Mono',monospace;}
+    /* HERO */
+    .hero-card{border-radius:20px;padding:20px 20px 18px;margin:0 0 1rem;position:relative;overflow:hidden;-webkit-mask-image:-webkit-radial-gradient(white,black);}
+    .hero-ok{background:linear-gradient(140deg,#1E40AF 0%,#2563EB 55%,#1D4ED8 100%);box-shadow:0 8px 28px rgba(37,99,235,0.35),0 2px 6px rgba(0,0,0,0.1);}
+    .hero-warn{background:linear-gradient(140deg,#92400E 0%,#B45309 55%,#78350F 100%);box-shadow:0 8px 28px rgba(180,83,9,0.35),0 2px 6px rgba(0,0,0,0.1);}
+    .hero-card::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.12) 1px,transparent 1px);background-size:20px 20px;pointer-events:none;}
+    .hero-card::after{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.1);pointer-events:none;}
+    .hero-eyebrow{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:12px;position:relative;z-index:1;font-family:'DM Mono',monospace;}
+    .hero-main{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;position:relative;z-index:1;}
+    .hero-time{font-size:64px;font-weight:800;letter-spacing:-4px;color:#fff;line-height:1;font-family:'DM Mono',monospace;text-shadow:0 2px 16px rgba(0,0,0,0.15);}
+    .hero-right{text-align:right;flex-shrink:0;}
+    .hero-price-val{font-size:30px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1;font-family:'DM Mono',monospace;}
+    .hero-price-sub{font-size:11px;color:rgba(255,255,255,0.6);margin-top:3px;}
+    .hero-footer{display:flex;align-items:center;justify-content:space-between;margin-top:14px;position:relative;z-index:1;}
+    .hero-sub{font-size:13px;color:rgba(255,255,255,0.7);font-weight:500;}
+    .hero-pill{background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:700;color:#fff;white-space:nowrap;}
+    .sek-lbl{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#94A3B8;margin:1.15rem 0 0.5rem 2px;display:block;font-family:'DM Mono',monospace;}
+    /* COMPARE */
+    .compare-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0.9rem;}
+    .cmp{border-radius:14px;border:1px solid;padding:13px;display:flex;flex-direction:column;position:relative;min-height:148px;box-shadow:0 1px 3px rgba(0,0,0,0.04);}
+    .cmp-grn{background:#ECFDF5;border-color:#6EE7B7;}
+    .cmp-grey{background:#FFFFFF;border-color:rgba(0,0,0,0.08);}
+    .cmp-red{background:#FEF2F2;border-color:#FECACA;}
+    .cmp-eyebrow{font-size:8.5px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#94A3B8;margin-bottom:8px;font-family:'DM Mono',monospace;}
+    .cmp-times{font-size:21px;font-weight:800;letter-spacing:-0.6px;color:#0F172A;line-height:1.1;margin-bottom:5px;font-family:'DM Mono',monospace;}
+    .cmp-times .pl{font-size:13px;font-weight:500;color:#94A3B8;margin:0 1px;vertical-align:middle;}
+    .cmp-meta{font-size:11px;color:#475569;line-height:1.6;}
+    .cmp-spacer{flex:1;}
+    .cmp-price{font-size:16px;font-weight:800;letter-spacing:-0.3px;padding-top:10px;border-top:1px solid rgba(0,0,0,0.06);margin-top:10px;font-family:'DM Mono',monospace;}
+    .cmp-price.grn{color:#059669;}.cmp-price.red{color:#DC2626;}.cmp-price.muted{color:#94A3B8;}
+    .cmp-total{font-size:11px;font-weight:500;opacity:0.7;margin-top:2px;}
+    .trophy{position:absolute;top:9px;right:11px;font-size:15px;}
+    /* ANLEITUNG */
+    .start-card{border-radius:var(--r);border:1px solid;padding:20px 18px 16px;margin-bottom:0.5rem;text-align:center;}
+    .start-card.sc-ok{background:#ECFDF5;border-color:#6EE7B7;}
+    .start-card.sc-warn{background:#FFFBEB;border-color:#FDE68A;}
+    .start-card.sc-no{background:#FEF2F2;border-color:#FECACA;}
+    .start-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#94A3B8;margin-bottom:6px;font-family:'DM Mono',monospace;}
+    .start-time{font-size:64px;font-weight:800;letter-spacing:-3px;line-height:1;font-family:'DM Mono',monospace;}
+    .start-time.ok{color:#059669;}.start-time.warn{color:#D97706;}.start-time.no{color:#DC2626;}
+    .start-sub{font-size:13px;color:#475569;margin-top:8px;line-height:1.7;}
+    .tcard{background:#FFFFFF;border-radius:var(--r);border:1px solid rgba(0,0,0,0.08);padding:1rem 1.15rem;margin-bottom:0.75rem;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
+    .tcard-lbl{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#94A3B8;margin-bottom:13px;font-family:'DM Mono',monospace;}
+    .steps{display:flex;flex-direction:column;gap:10px;}
+    .step{display:flex;gap:10px;align-items:flex-start;}
+    .snum{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;box-shadow:0 2px 8px rgba(37,99,235,0.3);}
+    .stxt{font-size:13px;line-height:1.65;color:#475569;}
+    .chip{display:inline-block;padding:1px 8px;border-radius:6px;font-weight:700;font-size:13px;font-family:'DM Mono',monospace;}
+    .chip-b{color:#1D4ED8;background:#EFF6FF;border:1px solid #BFDBFE;}
+    .chip-g{color:#0F172A;background:#F8FAFC;border:1px solid rgba(0,0,0,0.1);}
+    /* PREISE */
+    .dtabs{display:flex;gap:6px;margin-bottom:16px;}
+    .dtab{font-size:14px;font-weight:600;padding:9px 22px;border-radius:10px;border:1.5px solid #E2E8F0;background:#F8FAFC;cursor:pointer;color:#64748B;touch-action:manipulation;transition:all 0.15s;}
+    .dtab.on{background:#2563EB;border-color:#2563EB;color:#fff;box-shadow:0 4px 14px rgba(37,99,235,0.3);font-weight:700;}
+    .hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(54px,1fr));gap:6px;margin-bottom:16px;}
+    .hcell{border-radius:10px;padding:7px 4px;text-align:center;border:1.5px solid #E2E8F0;background:#F8FAFC;}
+    .hcell .ht{font-size:9.5px;color:#94A3B8;font-weight:600;font-family:'DM Mono',monospace;}
+    .hcell .hp{font-size:13px;font-weight:800;margin-top:3px;font-family:'DM Mono',monospace;color:#334155;}
+    .cg{background:#ECFDF5;border-color:#6EE7B7;}.cg .hp{color:#059669;}.cg .ht{color:#34D399;}
+    .cr{background:#FEF2F2;border-color:#FECACA;}.cr .hp{color:#DC2626;}.cr .ht{color:#F87171;}
+    .cp{background:#EFF6FF;border-color:#93C5FD;border-width:2px;}.cp .hp{color:#2563EB;}.cp .ht{color:#60A5FA;}
+    .cw{background:#FFFBEB;border-color:#FDE68A;border-width:2px;}.cw .hp{color:#D97706;}.cw .ht{color:#F59E0B;}
+    .cnow{outline:2.5px solid #2563EB;outline-offset:2px;border-radius:10px;}
+    .legend{display:flex;gap:12px;flex-wrap:wrap;}
+    .legend span{font-size:11px;color:#475569;display:flex;align-items:center;gap:4px;}
+    .ld{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+    .err{font-size:13px;color:#DC2626;background:#FEF2F2;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid var(--red-bdr);}
+    .loading{font-size:13px;color:#94A3B8;padding:6px 0;}
+    .src{font-size:11px;color:#94A3B8;text-align:center;margin-top:1.5rem;}
+    .src a{color:#475569;text-decoration:none;}
+    /* MODAL */
+    .modal-overlay{position:fixed;inset:0;z-index:100;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:flex;align-items:flex-end;justify-content:center;padding-bottom:max(env(safe-area-inset-bottom),0px);}
+    .modal-overlay.hidden{display:none!important;}
+    .modal-sheet{background:#FFFFFF;border:1px solid var(--bdr);border-radius:24px 24px 0 0;width:100%;max-width:430px;padding:12px 22px 44px;animation:slideUp 0.3s cubic-bezier(0.34,1.1,0.64,1);box-shadow:0 -8px 40px rgba(0,0,0,0.15);}
+    @keyframes slideUp{from{transform:translateY(100%);opacity:0;}to{transform:translateY(0);opacity:1;}}
+    .modal-handle{width:36px;height:4px;border-radius:2px;background:var(--bdr);margin:0 auto 20px;}
+    .modal-title{font-size:20px;font-weight:800;letter-spacing:-0.5px;margin-bottom:3px;color:#0F172A;}
+    .modal-sub{font-size:13px;color:#94A3B8;margin-bottom:22px;}
+    .modal-fields{display:flex;flex-direction:column;gap:16px;margin-bottom:22px;}
+    .modal-field{background:#F8FAFC;border:1px solid var(--bdr);border-radius:16px;padding:14px 16px 16px;}
+    .modal-field-top{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;}
+    .modal-label{font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#94A3B8;font-family:'DM Mono',monospace;}
+    .modal-val-row{display:flex;align-items:baseline;gap:4px;}
+    .modal-input{width:80px;padding:0;font-size:36px;font-weight:800;letter-spacing:-1.5px;border:none;background:transparent;color:#0F172A;outline:none;-moz-appearance:textfield;font-family:'DM Mono',monospace;text-align:right;}
+    .modal-input::-webkit-inner-spin-button{-webkit-appearance:none;}
+    .modal-pct{font-size:20px;font-weight:700;color:#94A3B8;line-height:1;}
+    .modal-slider{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:4px;background:#E2E8F0;outline:none;border:none;}
+    .modal-slider::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#1D4ED8);cursor:pointer;box-shadow:0 2px 8px rgba(37,99,235,0.4),0 0 0 3px rgba(37,99,235,0.15);}
+    .modal-btn{width:100%;padding:17px;font-size:17px;font-weight:800;letter-spacing:-0.3px;background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;border:none;border-radius:14px;cursor:pointer;touch-action:manipulation;box-shadow:0 4px 16px rgba(37,99,235,0.35);transition:opacity 0.12s,transform 0.1s;font-family:'DM Sans',sans-serif;}
+    .modal-btn:active{opacity:0.9;transform:scale(0.99);}
+    /* SETTINGS TOKEN */
+    .token-row{display:flex;gap:8px;align-items:center;margin-top:6px;}
+    .token-status{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap;}
+    .token-ok{background:#ECFDF5;color:#059669;border:1px solid #6EE7B7;}
+    .token-none{background:#F8FAFC;color:#94A3B8;border:1px solid #E2E8F0;}
+    .btn-sm{font-size:12px;font-weight:700;padding:7px 14px;border-radius:9px;border:none;cursor:pointer;touch-action:manipulation;font-family:'DM Sans',sans-serif;}
+    .btn-red{background:#FEF2F2;color:#DC2626;border:1px solid #FECACA;}
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+    #planArea{animation:fadeIn 0.25s ease;}
+  </style>
+</head>
+<body>
+
+<div class="modal-overlay hidden" id="modalOverlay">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div class="modal-title">Aktueller Ladestand</div>
+    <div class="modal-sub">Model 3 · 78,1 kWh</div>
+    <div class="modal-fields">
+      <div class="modal-field">
+        <div class="modal-field-top">
+          <span class="modal-label">Akku jetzt</span>
+          <div class="modal-val-row">
+            <input class="modal-input" type="number" id="modalSoc" min="0" max="100" value="20" inputmode="numeric"/>
+            <span class="modal-pct">%</span>
+          </div>
+        </div>
+        <input class="modal-slider" type="range" id="modalSocSlider" min="0" max="100" value="20"/>
+      </div>
+      <div class="modal-field">
+        <div class="modal-field-top">
+          <span class="modal-label">Ziel</span>
+          <div class="modal-val-row">
+            <input class="modal-input" type="number" id="modalZiel" min="10" max="100" value="100" inputmode="numeric"/>
+            <span class="modal-pct">%</span>
+          </div>
+        </div>
+        <input class="modal-slider" type="range" id="modalZielSlider" min="10" max="100" value="100"/>
+      </div>
+    </div>
+    <button class="modal-btn" onclick="modalConfirm()">Ladeplan berechnen ⚡</button>
+  </div>
+</div>
+
+<div class="app">
+  <div class="hdr">
+    <div class="hdr-icon">⚡</div>
+    <span class="hdr-title">Ladeampel</span>
+    <span class="hdr-sub" id="hdrSub">Model 3 · 78,1 kWh</span>
+  </div>
+  <div class="tabs">
+    <button class="tab on"  onclick="showTab('plan',this)">Ladeplan</button>
+    <button class="tab"     onclick="showTab('preise',this)">Preise</button>
+    <button class="tab"     onclick="showTab('anleitung',this)">Anleitung</button>
+    <button class="tab"     onclick="showTab('settings',this)">Einstellungen</button>
+  </div>
+
+  <div class="pane on" id="pane-plan">
+    <div class="card">
+      <p class="clbl">Ladestand</p>
+      <div class="frow">
+        <label>Jetzt</label>
+        <input type="number" id="soc" value="20" min="0" max="100" step="1" oninput="render()"/>
+        <span class="unit">%</span>
+      </div>
+      <div class="frow">
+        <label>Ziel</label>
+        <input type="number" id="ziel" value="100" min="10" max="100" step="1" oninput="render()"/>
+        <span class="unit">%</span>
+      </div>
+      <div class="sep"></div>
+      <div class="pricebar">
+        <div>
+          <div><span class="price-big" id="threshDisplay">28</span><span class="price-unit"> ct</span></div>
+          <div class="price-note">max. Ø-Preis · Einstellungen</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="kwh-big" id="kwhDisplay">—</div>
+          <div class="kwh-note">noch zu laden</div>
+        </div>
+      </div>
+      <div class="sep"></div>
+      <div class="clockrow">
+        <div>
+          <div class="clock-lbl">Uhrzeit</div>
+          <div class="clock-val" id="currentTime">—</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="clock-lbl">Ladezeit</div>
+          <div class="clock-val" id="ladezeitDisplay">—</div>
+        </div>
+      </div>
+    </div>
+    <div id="planArea" style="min-height:2rem;"><p class="loading">Lade Börsenpreise…</p></div>
+  </div>
+
+  <div class="pane" id="pane-anleitung">
+    <div id="anleitungArea"><p class="loading">Ladeplan zuerst im Tab „Ladeplan" berechnen…</p></div>
+  </div>
+
+  <div class="pane" id="pane-preise">
+    <div class="card">
+      <div class="dtabs">
+        <button class="dtab on" onclick="switchDay('today',this)">Heute</button>
+        <button class="dtab" id="tomBtn" onclick="switchDay('tomorrow',this)">Morgen</button>
+        <button class="dtab" id="bothBtn" style="display:none;" onclick="switchDay('both',this)">Beide</button>
+      </div>
+      <div class="hgrid" id="hoursGrid"></div>
+      <div class="legend">
+        <span><span class="ld" style="background:#2563EB;"></span>Ladeplan</span>
+        <span><span class="ld" style="background:#F59E0B;"></span>Warnung</span>
+        <span><span class="ld" style="background:#059669;"></span>unter Limit</span>
+        <span><span class="ld" style="background:#DC2626;"></span>über Limit</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pane" id="pane-settings">
+    <div class="card">
+      <p class="clbl">ENTSO-E API</p>
+      <p class="hint" style="margin-bottom:10px;">48h Preisvorschau via ENTSO-E Transparency Platform. Token einmalig eingeben — wird lokal gespeichert.</p>
+      <input type="text" id="entsoeToken" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" oninput="onTokenChange()" autocomplete="off" autocorrect="off" spellcheck="false"/>
+      <div class="token-row">
+        <span class="token-status token-none" id="tokenStatus">Kein Token</span>
+        <button class="btn-sm btn-red" id="tokenClearBtn" style="display:none;" onclick="clearToken()">Löschen</button>
+      </div>
+      <p class="hint" style="margin-top:8px;">Token unter: transparency.entsoe.eu → Einloggen → My Account Settings → Web API Security Token</p>
+    </div>
+    <div class="card">
+      <p class="clbl">Strompreis</p>
+      <div class="frow" style="flex-wrap:wrap;gap:6px;">
+        <label style="width:100%;margin-bottom:2px;">Aufschlag netto</label>
+        <input type="number" id="aufschlag" value="13.49" min="0" max="40" step="0.01" oninput="render()"/>
+        <span class="unit">ct/kWh</span>
+      </div>
+      <p class="hint">Netzentgelt + Umlagen + Beschaffungskosten netto. MwSt. ×1,19 wird automatisch aufgeschlagen.</p>
+      <div class="sep"></div>
+      <div class="frow">
+        <label>Max. Ø-Preis</label>
+        <input type="number" id="threshold" value="28" min="10" max="50" step="1" oninput="onThresh(this.value)"/>
+        <span class="unit">ct/kWh</span>
+      </div>
+      <p class="hint">Dein Preislimit für den Ladevorgang im Durchschnitt.</p>
+      <div class="sep"></div>
+      <div class="frow">
+        <label>Wallbox</label>
+        <input type="number" id="wallbox" value="10" min="1" max="22" step="1" oninput="render()"/>
+        <span class="unit">kW</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="src" id="srcLine">Preisdaten: <a href="https://www.awattar.de" target="_blank">aWATTar API</a> · EPEX Spot Day-Ahead</p>
+</div>
+
+<script>
+const AKKU_KWH = 78.1;
+const ENTSOE_DOMAIN = '10Y1001A1001A82H'; // DE-LU
+let prices = { today: [], tomorrow: [] };
+let thresh = 28;
+let activeDay = 'today';
+let planHoursToday = new Set(), planHoursTomorrow = new Set();
+let warnHoursToday = new Set(), warnHoursTomorrow = new Set();
+let dataSource = 'awattar'; // 'entsoe' or 'awattar'
+
+// LocalStorage init
+const socEl = document.getElementById('soc'), zielEl = document.getElementById('ziel');
+const ss = localStorage.getItem('la_soc'), sz = localStorage.getItem('la_ziel');
+if (ss !== null) socEl.value = ss;
+if (sz !== null) zielEl.value = sz;
+socEl.addEventListener('input', () => localStorage.setItem('la_soc', socEl.value));
+zielEl.addEventListener('input', () => localStorage.setItem('la_ziel', zielEl.value));
+
+// Token management
+function getToken() { return localStorage.getItem('la_entsoe_token') || ''; }
+function onTokenChange() {
+  const v = document.getElementById('entsoeToken').value.trim();
+  localStorage.setItem('la_entsoe_token', v);
+  updateTokenUI(v);
+}
+function clearToken() {
+  localStorage.removeItem('la_entsoe_token');
+  document.getElementById('entsoeToken').value = '';
+  updateTokenUI('');
+  load();
+}
+function updateTokenUI(token) {
+  const st = document.getElementById('tokenStatus');
+  const cb = document.getElementById('tokenClearBtn');
+  const isValid = token && token.length > 10;
+  st.textContent = isValid ? '✓ Token gesetzt' : 'Kein Token';
+  st.className = 'token-status ' + (isValid ? 'token-ok' : 'token-none');
+  cb.style.display = isValid ? '' : 'none';
+}
+// Init token UI
+const savedToken = getToken();
+if (savedToken) {
+  document.getElementById('entsoeToken').value = savedToken;
+  updateTokenUI(savedToken);
+}
+
+// Modal
+function modalConfirm() {
+  const soc  = parseInt(document.getElementById('modalSoc').value)  || 20;
+  const ziel = parseInt(document.getElementById('modalZiel').value) || 100;
+  socEl.value = soc; zielEl.value = ziel;
+  localStorage.setItem('la_soc', soc); localStorage.setItem('la_ziel', ziel);
+  document.getElementById('modalOverlay').classList.add('hidden');
+  render();
+}
+function syncModal(inputId, sliderId) {
+  const inp = document.getElementById(inputId), sld = document.getElementById(sliderId);
+  inp.addEventListener('input', () => { sld.value = inp.value; });
+  sld.addEventListener('input', () => { inp.value = sld.value; });
+}
+syncModal('modalSoc','modalSocSlider'); syncModal('modalZiel','modalZielSlider');
+setTimeout(() => { document.getElementById('modalOverlay').classList.remove('hidden'); }, 80);
+const mSoc=document.getElementById('modalSoc'),mZiel=document.getElementById('modalZiel');
+const mSocS=document.getElementById('modalSocSlider'),mZielS=document.getElementById('modalZielSlider');
+if (ss!==null){mSoc.value=ss;mSocS.value=ss;}
+if (sz!==null){mZiel.value=sz;mZielS.value=sz;}
+
+function showTab(id, btn) {
+  document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
+  document.getElementById('pane-' + id).classList.add('on');
+  btn.classList.add('on');
+  if (id === 'preise') renderGrid();
+}
+function onThresh(v) {
+  thresh = parseFloat(v) || 28;
+  document.getElementById('threshDisplay').textContent = thresh;
+  render();
+}
+const getAufschlag = () => parseFloat(document.getElementById('aufschlag').value) || 13.49;
+const getSoc       = () => parseFloat(document.getElementById('soc').value) || 0;
+const getZiel      = () => parseFloat(document.getElementById('ziel').value) || 100;
+const getWallbox   = () => parseFloat(document.getElementById('wallbox').value) || 10;
+const fmt   = c  => c.toFixed(1) + ' ct';
+const fmtH  = h  => h.toString().padStart(2,'0') + ':00';
+const total = raw => Math.round((raw + getAufschlag()) * 1.19 * 10) / 10;
+const benKwh = () => Math.round(Math.max(0, getZiel() - getSoc()) / 100 * AKKU_KWH * 10) / 10;
+const benH   = kwh => Math.ceil(kwh / getWallbox());
+
+// ─── ENTSO-E Parser ───
+function parseEntsoeXML(xmlText) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(xmlText, 'application/xml');
+  const results = [];
+  doc.querySelectorAll('TimeSeries').forEach(ts => {
+    const currency = ts.querySelector('currency_Unit\\.name')?.textContent || 'EUR';
+    ts.querySelectorAll('Period').forEach(period => {
+      const start = new Date(period.querySelector('timeInterval > start')?.textContent);
+      const resEl = period.querySelector('resolution')?.textContent || 'PT60M';
+      // Parse resolution: PT15M → 15, PT60M → 60
+      const minMatch = resEl.match(/PT(\d+)M/);
+      const minStep = minMatch ? parseInt(minMatch[1]) : 60;
+      const points = period.querySelectorAll('Point');
+      points.forEach(pt => {
+        const pos = parseInt(pt.querySelector('position')?.textContent || '1');
+        const price = parseFloat(pt.querySelector('price\\.amount')?.textContent || '0');
+        // position 1 = start, offset by (pos-1)*minStep minutes
+        const t = new Date(start.getTime() + (pos - 1) * minStep * 60000);
+        // price is EUR/MWh → ct/kWh netto = divide by 10
+        results.push({ time: t, priceEurMwh: price });
+      });
+    });
+  });
+  // Group into hours by averaging 15-min slots
+  const hourMap = {};
+  results.forEach(r => {
+    // Round down to hour
+    const h = new Date(r.time);
+    h.setMinutes(0, 0, 0);
+    const key = h.toISOString();
+    if (!hourMap[key]) hourMap[key] = { sum: 0, count: 0, time: h };
+    hourMap[key].sum += r.priceEurMwh;
+    hourMap[key].count++;
+  });
+  return Object.values(hourMap)
+    .sort((a, b) => a.time - b.time)
+    .map(h => ({ time: h.time.toISOString(), raw: Math.round(h.sum / h.count / 10 * 100) / 100 }));
+}
+
+// ─── UTC date string für ENTSO-E ───
+function entsoeDate(date) {
+  const y = date.getUTCFullYear();
+  const m = String(date.getUTCMonth()+1).padStart(2,'0');
+  const d = String(date.getUTCDate()).padStart(2,'0');
+  const hh = String(date.getUTCHours()).padStart(2,'0');
+  return `${y}${m}${d}${hh}00`;
+}
+
+// ─── Load ENTSO-E ───
+async function loadEntsoe(token) {
+  // periodStart: yesterday 22:00 UTC (= heute 00:00 MESZ), periodEnd: +48h
+  const now = new Date();
+  // Start: heute 00:00 Lokalzeit → in UTC
+  const startLocal = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+  // ENTSO-E wants UTC, MESZ = UTC+2, so 00:00 MESZ = 22:00 UTC previous day
+  const startUTC = new Date(startLocal.getTime() - startLocal.getTimezoneOffset() * 60000);
+  // We want today+2 days coverage
+  const endUTC = new Date(startUTC.getTime() + 3 * 24 * 60 * 60 * 1000);
+  const ps = entsoeDate(startUTC);
+  const pe = entsoeDate(endUTC);
+  const url = `https://web-api.tp.entsoe.eu/api?securityToken=${token}&documentType=A44&in_Domain=${ENTSOE_DOMAIN}&out_Domain=${ENTSOE_DOMAIN}&periodStart=${ps}&periodEnd=${pe}`;
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  const xml = await resp.text();
+  if (xml.includes('<code>999</code>') || xml.includes('Acknowledgement_MarketDocument')) {
+    const errText = xml.match(/<text>(.*?)<\/text>/)?.[1] || 'Unbekannter Fehler';
+    throw new Error('ENTSO-E: ' + errText);
+  }
+  return parseEntsoeXML(xml);
+}
+
+// ─── Load aWATTar (fallback) ───
+async function loadAwattar() {
+  const j = await (await fetch('https://api.awattar.de/v1/marketdata')).json();
+  return j.data.map(d => ({ time: new Date(d.start_timestamp).toISOString(), raw: d.marketprice / 10 }));
+}
+
+// ─── Main load ───
+async function load() {
+  try {
+    const token = getToken();
+    let allPrices;
+    if (token && token.length > 10) {
+      try {
+        allPrices = await loadEntsoe(token);
+        dataSource = 'entsoe';
+      } catch(e) {
+        console.warn('ENTSO-E Fehler, Fallback auf aWATTar:', e.message);
+        allPrices = await loadAwattar();
+        dataSource = 'awattar';
+      }
+    } else {
+      allPrices = await loadAwattar();
+      dataSource = 'awattar';
+    }
+
+    const now = new Date();
+    const ts = now.toDateString();
+    const tm = new Date(now.getTime() + 86400000).toDateString();
+    prices.today = []; prices.tomorrow = [];
+    allPrices.forEach(p => {
+      const d = new Date(p.time).toDateString();
+      if (d === ts) prices.today.push(p);
+      else if (d === tm) prices.tomorrow.push(p);
+    });
+
+    // Update UI
+    const tb = document.getElementById('tomBtn');
+    if (!prices.tomorrow.length) { tb.style.opacity='0.35'; tb.disabled=true; }
+    else { tb.style.opacity=''; tb.disabled=false; }
+    if (prices.tomorrow.length && (new Date().getHours() >= 14 || dataSource === 'entsoe')) {
+      document.getElementById('bothBtn').style.display='';
+    }
+
+    // Source badge
+    const badge = dataSource === 'entsoe'
+      ? '<span class="src-badge src-entsoe">✓ ENTSO-E · 48h</span>'
+      : '<span class="src-badge src-awattar">aWATTar</span>';
+    document.getElementById('srcLine').innerHTML =
+      dataSource === 'entsoe'
+        ? `Preisdaten: <a href="https://transparency.entsoe.eu" target="_blank">ENTSO-E Transparency Platform</a> ${badge}`
+        : `Preisdaten: <a href="https://www.awattar.de" target="_blank">aWATTar API</a> ${badge} · EPEX Spot Day-Ahead`;
+
+    // Header sub
+    document.getElementById('hdrSub').innerHTML =
+      `Model 3 · 78,1 kWh`;
+
+    render();
+  } catch(e) {
+    document.getElementById('planArea').innerHTML = `<div class="err">Fehler beim Laden: ${e.message}</div>`;
+  }
+}
+setInterval(load, 15 * 60 * 1000);
+
+// ─── Plan calculation (unchanged) ───
+function calcPlan(psToday, psTom) {
+  const kwh = benKwh();
+  if (kwh <= 0) return { leer: true };
+  const stunden = benH(kwh);
+  const nowH = new Date().getHours();
+  const all = [...psToday.filter(p => new Date(p.time).getHours() >= nowH), ...psTom];
+  if (all.length < stunden) return { kwh, stunden, machbar: false, keineDaten: true };
+  const dayOf = t => new Date(t).toDateString() === new Date().toDateString() ? 'heute' : 'morgen';
+  const toH   = (slots, day) => new Set(slots.filter(p => dayOf(p.time) === day).map(p => new Date(p.time).getHours()));
+  const bInfo = win => {
+    const s=new Date(win[0].time), e=new Date(win[win.length-1].time);
+    return { startH:s.getHours(), endH:e.getHours()+1, startDay:dayOf(win[0].time), endDay:dayOf(win[win.length-1].time), avg:Math.round(win.reduce((a,p)=>a+p.cents,0)/win.length*10)/10, win };
+  };
+  const blocks = [];
+  for (let i=0; i<=all.length-stunden; i++) blocks.push(bInfo(all.slice(i,i+stunden)));
+  const schnB   = blocks.find(b=>b.startH===nowH&&b.startDay==='heute')||blocks[0];
+  const schnell = {...schnB, unterLimit:schnB.avg<=thresh};
+  const bester1 = blocks.reduce((a,b)=>a.avg<b.avg?a:b);
+  const frueh1  = blocks.find(b=>b.avg<=thresh) || null;
+  let best2=null, frueh2=null;
+  if (stunden >= 2) {
+    for (let h1=1; h1<stunden; h1++) {
+      const h2=stunden-h1;
+      for (let i=0; i<=all.length-h1; i++) {
+        const winA=all.slice(i,i+h1);
+        for (let j=i+h1+1; j<=all.length-h2; j++) {
+          const winB=all.slice(j,j+h2);
+          const avgAB=Math.round((winA.reduce((a,p)=>a+p.cents,0)+winB.reduce((a,p)=>a+p.cents,0))/stunden*10)/10;
+          const b1i=bInfo(winA), b2i=bInfo(winB);
+          const tH=new Set([...toH(winA,'heute'),...toH(winB,'heute')]);
+          const tmH=new Set([...toH(winA,'morgen'),...toH(winB,'morgen')]);
+          if (!best2||avgAB<best2.avg) best2={avg:avgAB,block1:b1i,block2:b2i,todayH:tH,tomorrowH:tmH};
+          if (avgAB<=thresh && !frueh2) frueh2={avg:avgAB,block1:b1i,block2:b2i,todayH:tH,tomorrowH:tmH};
+        }
+      }
+    }
+  }
+  const use2forGrid = best2 && best2.avg < (bester1.avg - 0.5);
+  return {
+    kwh, stunden, machbar:true, schnell,
+    b1:bester1, avg1:bester1.avg, zwei:best2, frueh1, frueh2,
+    todayHours:    use2forGrid ? best2.todayH    : toH(bester1.win,'heute'),
+    tomorrowHours: use2forGrid ? best2.tomorrowH : toH(bester1.win,'morgen'),
+    warnTodayHours:new Set(), warnTomorrowHours:new Set()
+  };
+}
+
+function render() {
+  const now=new Date(), nowH=now.getHours(), nowMin=now.getMinutes();
+  const kwh=benKwh(), wb=getWallbox();
+  document.getElementById('kwhDisplay').textContent    = kwh > 0 ? kwh + ' kWh' : 'Ziel erreicht';
+  document.getElementById('threshDisplay').textContent = thresh;
+  document.getElementById('currentTime').textContent   = nowH.toString().padStart(2,'0') + ':' + nowMin.toString().padStart(2,'0');
+  const lzH=Math.floor(kwh/wb), lzM=Math.round((kwh/wb-lzH)*60);
+  document.getElementById('ladezeitDisplay').textContent = kwh>0 ? (lzH>0?lzH+'h ':'')+lzM+'m' : '—';
+  const pt=prices.today.map(p=>({...p,cents:total(p.raw)}));
+  const pm=prices.tomorrow.map(p=>({...p,cents:total(p.raw)}));
+  const plan=calcPlan(pt,pm);
+  warnHoursToday=new Set(); warnHoursTomorrow=new Set();
+  let html='', anlHTML='';
+
+  if (plan.leer) {
+    html=`<div class="start-card sc-ok"><div class="start-label">Status</div><div class="start-time ok">✓</div><div class="start-sub">Akku am Ziel — kein Laden nötig.</div></div>`;
+    anlHTML=html;
+  } else if (plan.keineDaten) {
+    html=`<div class="start-card sc-warn"><div class="start-label">Morgen-Preise</div><div class="start-time warn" style="font-size:40px;">◷</div><div class="start-sub">Noch nicht verfügbar.<br>${dataSource==='entsoe'?'ENTSO-E hat noch keine Daten.':'aWATTar veröffentlicht ab ca. 14:00 Uhr.'}</div></div>`;
+    anlHTML=html;
+  } else {
+    const s=plan.schnell, b1=plan.b1, z=plan.zwei, f1=plan.frueh1, f2=plan.frueh2;
+    planHoursToday=plan.todayHours; planHoursTomorrow=plan.tomorrowHours;
+    const meta1 = b => `${b.startDay} ${fmtH(b.startH)} → ${b.endDay} ${fmtH(b.endH)} · ${plan.stunden} Std`;
+    const meta2 = z => `${z.block1.startDay} ${fmtH(z.block1.startH)}–${fmtH(z.block1.endH)} · ${z.block1.win.length} Std<br>${z.block2.startDay} ${fmtH(z.block2.startH)}–${fmtH(z.block2.endH)} · ${z.block2.win.length} Std`;
+    const cost  = avg => (Math.round(avg * plan.kwh) / 100).toFixed(2);
+    const priceLine = avg => {
+      const ok=avg<=thresh, col=ok?'grn':'red', sym=ok?`✓ unter ${thresh} ct`:`✕ über ${thresh} ct`;
+      return `<div class="cmp-price ${col}">${fmt(avg)} <span style="font-size:11px;font-weight:500;">${sym}</span><div class="cmp-total">≈ ${cost(avg)} €</div></div>`;
+    };
+    const z_besser = z && z.avg < plan.avg1 - 0.01;
+    const b1isSchnell = b1.startH===nowH && b1.startDay==='heute';
+
+    html = `
+    <span class="sek-lbl">⚡ Jetzt sofort</span>
+    <div class="hero-card ${s.unterLimit?'hero-ok':'hero-warn'}">
+      <div class="hero-eyebrow">Laden ab sofort · 1 Block · ${plan.stunden} Std</div>
+      <div class="hero-main">
+        <div class="hero-time">${fmtH(nowH)}</div>
+        <div class="hero-right">
+          <div class="hero-price-val">${fmt(s.avg)}</div>
+          <div class="hero-price-sub">Ø pro kWh · ≈ ${cost(s.avg)} €</div>
+        </div>
+      </div>
+      <div class="hero-footer">
+        <div class="hero-sub">Fertig ${s.endDay} ${fmtH(s.endH)} Uhr</div>
+        <div class="hero-pill">${s.unterLimit?`✓ unter ${thresh} ct`:`✕ über ${thresh} ct`}</div>
+      </div>
+    </div>`;
+
+    html += `<span class="sek-lbl">② Niedrigster Preis</span><div class="compare-row">`;
+    html += `<div class="cmp cmp-grn"><div class="cmp-eyebrow">① 1 Block</div><div class="cmp-times">${fmtH(b1.startH)}</div><div class="cmp-meta">${meta1(b1)}${b1isSchnell?' <span style="color:#059669;">= Schnellstart</span>':''}</div><div class="cmp-spacer"></div>${priceLine(b1.avg)}</div>`;
+    if (z) {
+      html += `<div class="cmp cmp-grn">${z_besser?'<div class="trophy">🏆</div>':''}<div class="cmp-eyebrow">② 2 Blöcke</div><div class="cmp-times">${fmtH(z.block1.startH)}<span class="pl">+</span>${fmtH(z.block2.startH)}</div><div class="cmp-meta">${meta2(z)}</div><div class="cmp-spacer"></div>${priceLine(z.avg)}</div>`;
+    } else {
+      html += `<div class="cmp cmp-grey" style="opacity:0.5;"><div class="cmp-eyebrow">② 2 Blöcke</div><div class="cmp-meta" style="margin-top:8px;">Nicht möglich<br>(zu wenig Stunden)</div><div class="cmp-spacer"></div></div>`;
+    }
+    html += `</div>`;
+
+    html += `<span class="sek-lbl">✓ Frühest unter ${thresh} ct</span><div class="compare-row">`;
+    if (f1) {
+      html += `<div class="cmp cmp-grn"><div class="cmp-eyebrow">① 1 Block</div><div class="cmp-times">${fmtH(f1.startH)}</div><div class="cmp-meta">${meta1(f1)}</div><div class="cmp-spacer"></div>${priceLine(f1.avg)}</div>`;
+    } else {
+      html += `<div class="cmp cmp-red"><div class="cmp-eyebrow">① 1 Block</div><div class="cmp-times" style="font-size:16px;color:#DC2626;">Kein Block<br>unter ${thresh} ct</div><div class="cmp-spacer"></div><div class="cmp-price red">${fmt(plan.avg1)} ✕</div></div>`;
+    }
+    if (f2) {
+      const f2earlier = f1 && f2.block1.startH < f1.startH;
+      html += `<div class="cmp cmp-grn">${f2earlier?'<div class="trophy">🏆</div>':''}<div class="cmp-eyebrow">② 2 Blöcke</div><div class="cmp-times">${fmtH(f2.block1.startH)}<span class="pl">+</span>${fmtH(f2.block2.startH)}</div><div class="cmp-meta">${meta2(f2)}</div><div class="cmp-spacer"></div>${priceLine(f2.avg)}</div>`;
+    } else {
+      html += `<div class="cmp cmp-red"><div class="cmp-eyebrow">② 2 Blöcke</div><div class="cmp-times" style="font-size:16px;color:#DC2626;">Kein Block<br>unter ${thresh} ct</div><div class="cmp-spacer"></div><div class="cmp-price red">${z?fmt(z.avg):'—'} ✕</div></div>`;
+    }
+    html += `</div>`;
+
+    if (z_besser) {
+      anlHTML=`<div class="start-card sc-ok" style="margin-bottom:0.75rem;"><div class="start-label">② Niedrigster Preis · 2 Blöcke 🏆</div><div class="start-time ok" style="font-size:46px;letter-spacing:-2px;">${fmtH(z.block1.startH)}<span style="font-size:22px;font-weight:600;opacity:0.5;margin:0 4px;">+</span>${fmtH(z.block2.startH)}</div><div class="start-sub">${z.block1.startDay} · Ø ${fmt(z.avg)} · ≈ ${cost(z.avg)} €</div></div>` + teslaCard2(z.block1, z.block2, plan.stunden, plan.kwh);
+    } else {
+      anlHTML=`<div class="start-card sc-ok" style="margin-bottom:0.75rem;"><div class="start-label">① Niedrigster Preis · 1 Block</div><div class="start-time ok">${fmtH(b1.startH)}</div><div class="start-sub">${b1.startDay} · fertig ${b1.endDay} ${fmtH(b1.endH)} · ≈ ${cost(b1.avg)} €</div></div>` + teslaCard1(b1.startH, b1.startDay, b1.endH, b1.endDay, plan.stunden, plan.kwh);
+    }
+  }
+  document.getElementById('planArea').innerHTML=html;
+  document.getElementById('anleitungArea').innerHTML=anlHTML;
+  renderGrid();
+}
+
+function teslaCard1(startH,startDay,endH,endDay,stunden,kwh) {
+  const ziel=getZiel(), lz=Math.round(kwh/getWallbox()*10)/10;
+  const eL=`${endDay==='heute'?'Heute':'Morgen'} ${fmtH(endH)}`;
+  let s='';
+  s+=st(1,`Auto <b>jetzt anstecken</b> — noch nicht laden lassen`);
+  s+=st(2,`Tesla App → <b>Laden</b> → <b>Zeitpläne</b> → <b>+</b>`);
+  s+=st(3,`Zeitplan: <span class="chip chip-b">${fmtH(startH)}</span> bis <span class="chip chip-b">${fmtH(endH)}</span> <span style="font-size:11px;color:#94A3B8;">(${startDay})</span>`);
+  s+=st(4,`Ladelimit auf <span class="chip chip-g">${ziel}%</span> setzen`);
+  s+=st(5,`Zeitplan speichern — fertig um ${eL}<br><span style="font-size:11px;color:#94A3B8;">ca. ${lz} Std bei ${getWallbox()} kW</span>`);
+  return `<div class="tcard"><div class="tcard-lbl">📱 Tesla App — 1 Zeitplan einstellen</div><div class="steps">${s}</div></div>`;
+}
+function teslaCard2(b1, b2, stunden, kwh) {
+  const ziel=getZiel(), lz=Math.round(kwh/getWallbox()*10)/10;
+  let s='';
+  s+=st(1,`Auto <b>jetzt anstecken</b> — noch nicht laden lassen`);
+  s+=st(2,`Tesla App → <b>Laden</b> → <b>Zeitpläne</b> → <b>+</b>`);
+  s+=st(3,`<b>Zeitplan 1:</b> <span class="chip chip-b">${fmtH(b1.startH)}</span> bis <span class="chip chip-b">${fmtH(b1.endH)}</span> <span style="font-size:11px;color:#94A3B8;">(${b1.startDay} · ${b1.win.length} Std)</span>`);
+  s+=st(4,`<b>Zeitplan 2:</b> <span class="chip chip-b">${fmtH(b2.startH)}</span> bis <span class="chip chip-b">${fmtH(b2.endH)}</span> <span style="font-size:11px;color:#94A3B8;">(${b2.startDay} · ${b2.win.length} Std)</span>`);
+  s+=st(5,`Ladelimit auf <span class="chip chip-g">${ziel}%</span> setzen`);
+  s+=st(6,`Beide Zeitpläne speichern<br><span style="font-size:11px;color:#94A3B8;">Gesamt ca. ${lz} Std bei ${getWallbox()} kW</span>`);
+  return `<div class="tcard"><div class="tcard-lbl">📱 Tesla App — 2 Zeitpläne einstellen</div><div class="steps">${s}</div></div>`;
+}
+const st=(n,t)=>`<div class="step"><div class="snum">${n}</div><div class="stxt">${t}</div></div>`;
+
+function switchDay(day,btn) {
+  activeDay=day;
+  document.querySelectorAll('.dtab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderGrid();
+}
+
+function renderGrid() {
+  const nowH=new Date().getHours();
+  const days=['So','Mo','Di','Mi','Do','Fr','Sa'];
+  const todayName=days[new Date().getDay()];
+  const tomorrowName=days[new Date(Date.now()+86400000).getDay()];
+  let ps;
+  if (activeDay==='both') {
+    ps=[...prices.today.map(p=>({...p,cents:total(p.raw),_day:'heute'})),...prices.tomorrow.map(p=>({...p,cents:total(p.raw),_day:'morgen'}))];
+  } else {
+    ps=prices[activeDay].map(p=>({...p,cents:total(p.raw),_day:activeDay==='today'?'heute':'morgen'}));
+  }
+  const pH=activeDay==='tomorrow'?planHoursTomorrow:planHoursToday;
+  const wH=activeDay==='today'?warnHoursToday:warnHoursTomorrow;
+  document.getElementById('hoursGrid').innerHTML=ps.map(p=>{
+    const h=new Date(p.time).getHours();
+    const inPlan=activeDay==='both'?(p._day==='heute'?planHoursToday:planHoursTomorrow).has(h):pH.has(h);
+    const inWarn=activeDay==='both'?false:wH.has(h);
+    const c=inPlan?'cp':inWarn?'cw':p.cents<thresh?'cg':'cr';
+    const isNow=p._day==='heute'&&h===nowH;
+    const dayTag=activeDay==='both'?`<div class="ht" style="font-size:8px;">${p._day==='heute'?todayName:tomorrowName}</div>`:'';
+    return `<div class="hcell ${c}${isNow?' cnow':''}"><div class="ht">${h.toString().padStart(2,'0')}h</div>${dayTag}<div class="hp">${fmt(p.cents)}</div></div>`;
+  }).join('');
+}
+
+load();
+setInterval(()=>{
+  const n=new Date(),el=document.getElementById('currentTime');
+  if(el) el.textContent=n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0');
+},60000);
+</script>
+</body>
+</html>
